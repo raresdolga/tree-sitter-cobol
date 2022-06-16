@@ -1,0 +1,737 @@
+[
+  {
+    "type": "configuration_section",
+    "named": true,
+    "fields": {
+      "object_computer": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "object_computer_entry",
+            "named": true
+          }
+        ]
+      },
+      "source_computer": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "source_computer_entry",
+            "named": true
+          }
+        ]
+      },
+      "special_names": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "special_names_entry",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "data_division",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "communication_section",
+          "named": true
+        },
+        {
+          "type": "file_section",
+          "named": true
+        },
+        {
+          "type": "linkage_section",
+          "named": true
+        },
+        {
+          "type": "report_section",
+          "named": true
+        },
+        {
+          "type": "working_storage_section",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "data_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "environment_division",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "configuration_section",
+          "named": true
+        },
+        {
+          "type": "input_output_section",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "file_control_entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "data_name",
+          "named": true
+        },
+        {
+          "type": "file_name",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "file_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "file_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "alphabet_name",
+          "named": true
+        },
+        {
+          "type": "data_name",
+          "named": true
+        },
+        {
+          "type": "file_name",
+          "named": true
+        },
+        {
+          "type": "implementor_name",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "identification_division",
+    "named": true,
+    "fields": {
+      "author": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "comment_entry",
+            "named": true
+          }
+        ]
+      },
+      "date_compiled": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "comment_entry",
+            "named": true
+          }
+        ]
+      },
+      "date_written": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "comment_entry",
+            "named": true
+          }
+        ]
+      },
+      "installation": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "comment_entry",
+            "named": true
+          }
+        ]
+      },
+      "program_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "program_name",
+            "named": true
+          }
+        ]
+      },
+      "security": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "comment_entry",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "input_output_control_entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "character_string",
+          "named": true
+        },
+        {
+          "type": "file_name",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "input_output_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "file_control_entry",
+          "named": true
+        },
+        {
+          "type": "input_output_control_entry",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "program_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "data_division",
+          "named": true
+        },
+        {
+          "type": "environment_division",
+          "named": true
+        },
+        {
+          "type": "identification_division",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ACCESS",
+    "named": false
+  },
+  {
+    "type": "ALTERNATE",
+    "named": false
+  },
+  {
+    "type": "ARE",
+    "named": false
+  },
+  {
+    "type": "AREA",
+    "named": false
+  },
+  {
+    "type": "AREAS",
+    "named": false
+  },
+  {
+    "type": "ASSIGN",
+    "named": false
+  },
+  {
+    "type": "AT",
+    "named": false
+  },
+  {
+    "type": "AUTHOR.",
+    "named": false
+  },
+  {
+    "type": "BLOCK",
+    "named": false
+  },
+  {
+    "type": "BOTTOM",
+    "named": false
+  },
+  {
+    "type": "CHARACTER",
+    "named": false
+  },
+  {
+    "type": "CHARACTERS",
+    "named": false
+  },
+  {
+    "type": "CLOCK-UNITS",
+    "named": false
+  },
+  {
+    "type": "CODE-SET",
+    "named": false
+  },
+  {
+    "type": "COMMON",
+    "named": false
+  },
+  {
+    "type": "CONFIGURATION SECTION.",
+    "named": false
+  },
+  {
+    "type": "CONTAINS",
+    "named": false
+  },
+  {
+    "type": "DATA",
+    "named": false
+  },
+  {
+    "type": "DATA DIVISION.",
+    "named": false
+  },
+  {
+    "type": "DATE-COMPILED.",
+    "named": false
+  },
+  {
+    "type": "DATE-WRITTEN.",
+    "named": false
+  },
+  {
+    "type": "DEPENDING",
+    "named": false
+  },
+  {
+    "type": "DISC",
+    "named": false
+  },
+  {
+    "type": "DISK",
+    "named": false
+  },
+  {
+    "type": "DISK FROM",
+    "named": false
+  },
+  {
+    "type": "DISPLAY",
+    "named": false
+  },
+  {
+    "type": "DUPLICATES",
+    "named": false
+  },
+  {
+    "type": "DYNAMIC",
+    "named": false
+  },
+  {
+    "type": "END",
+    "named": false
+  },
+  {
+    "type": "ENVIRONMENT DIVISION.",
+    "named": false
+  },
+  {
+    "type": "EVERY",
+    "named": false
+  },
+  {
+    "type": "EXTERNAL",
+    "named": false
+  },
+  {
+    "type": "FD",
+    "named": false
+  },
+  {
+    "type": "FILE",
+    "named": false
+  },
+  {
+    "type": "FILE SECTION.",
+    "named": false
+  },
+  {
+    "type": "FILE STATUS IS",
+    "named": false
+  },
+  {
+    "type": "FILE-CONTROL.",
+    "named": false
+  },
+  {
+    "type": "FOOTING",
+    "named": false
+  },
+  {
+    "type": "FOR",
+    "named": false
+  },
+  {
+    "type": "FROM",
+    "named": false
+  },
+  {
+    "type": "GLOBAL",
+    "named": false
+  },
+  {
+    "type": "I-O-CONTROL.",
+    "named": false
+  },
+  {
+    "type": "IDENTIFICATION DIVISION.",
+    "named": false
+  },
+  {
+    "type": "IN",
+    "named": false
+  },
+  {
+    "type": "INDEXED",
+    "named": false
+  },
+  {
+    "type": "INITIAL",
+    "named": false
+  },
+  {
+    "type": "INPUT-OUTPUT SECTION.",
+    "named": false
+  },
+  {
+    "type": "INSTALLATION.",
+    "named": false
+  },
+  {
+    "type": "KEY",
+    "named": false
+  },
+  {
+    "type": "KEYBOARD",
+    "named": false
+  },
+  {
+    "type": "LABEL",
+    "named": false
+  },
+  {
+    "type": "LINAGE",
+    "named": false
+  },
+  {
+    "type": "LINE ADVANCING",
+    "named": false
+  },
+  {
+    "type": "LINES",
+    "named": false
+  },
+  {
+    "type": "MODE",
+    "named": false
+  },
+  {
+    "type": "MULTIPLE",
+    "named": false
+  },
+  {
+    "type": "OBJECT-COMPUTER.",
+    "named": false
+  },
+  {
+    "type": "OF",
+    "named": false
+  },
+  {
+    "type": "OMITTED",
+    "named": false
+  },
+  {
+    "type": "ON",
+    "named": false
+  },
+  {
+    "type": "OPTIONAL",
+    "named": false
+  },
+  {
+    "type": "ORGANIZATION",
+    "named": false
+  },
+  {
+    "type": "PADDING",
+    "named": false
+  },
+  {
+    "type": "POSITION",
+    "named": false
+  },
+  {
+    "type": "PRINTER",
+    "named": false
+  },
+  {
+    "type": "PRINTER-1",
+    "named": false
+  },
+  {
+    "type": "PROGRAM",
+    "named": false
+  },
+  {
+    "type": "PROGRAM-ID.",
+    "named": false
+  },
+  {
+    "type": "RANDOM",
+    "named": false
+  },
+  {
+    "type": "REAL",
+    "named": false
+  },
+  {
+    "type": "RECORD",
+    "named": false
+  },
+  {
+    "type": "RECORD DELIMITER",
+    "named": false
+  },
+  {
+    "type": "RECORDS",
+    "named": false
+  },
+  {
+    "type": "REEL",
+    "named": false
+  },
+  {
+    "type": "RELATIVE",
+    "named": false
+  },
+  {
+    "type": "RERUN",
+    "named": false
+  },
+  {
+    "type": "RESERVE",
+    "named": false
+  },
+  {
+    "type": "SAME",
+    "named": false
+  },
+  {
+    "type": "SECURITY.",
+    "named": false
+  },
+  {
+    "type": "SELECT",
+    "named": false
+  },
+  {
+    "type": "SEQUENTIAL",
+    "named": false
+  },
+  {
+    "type": "SIZE",
+    "named": false
+  },
+  {
+    "type": "SORT",
+    "named": false
+  },
+  {
+    "type": "SORT-MERGE",
+    "named": false
+  },
+  {
+    "type": "SOURCE-COMPUTER.",
+    "named": false
+  },
+  {
+    "type": "SPECIAL-NAMES.",
+    "named": false
+  },
+  {
+    "type": "STANDARD",
+    "named": false
+  },
+  {
+    "type": "STANDARD-1",
+    "named": false
+  },
+  {
+    "type": "STATUS",
+    "named": false
+  },
+  {
+    "type": "TAPE",
+    "named": false
+  },
+  {
+    "type": "TO",
+    "named": false
+  },
+  {
+    "type": "TOP",
+    "named": false
+  },
+  {
+    "type": "UNIT",
+    "named": false
+  },
+  {
+    "type": "VALUE",
+    "named": false
+  },
+  {
+    "type": "VARYING",
+    "named": false
+  },
+  {
+    "type": "WITH",
+    "named": false
+  },
+  {
+    "type": "alphabet_name",
+    "named": true
+  },
+  {
+    "type": "character-string",
+    "named": false
+  },
+  {
+    "type": "character_string",
+    "named": true
+  },
+  {
+    "type": "comment_entry",
+    "named": true
+  },
+  {
+    "type": "communication_section",
+    "named": true
+  },
+  {
+    "type": "condition-name",
+    "named": false
+  },
+  {
+    "type": "implementor_name",
+    "named": true
+  },
+  {
+    "type": "integer",
+    "named": true
+  },
+  {
+    "type": "linkage_section",
+    "named": true
+  },
+  {
+    "type": "object_computer_entry",
+    "named": true
+  },
+  {
+    "type": "report_section",
+    "named": true
+  },
+  {
+    "type": "source_computer_entry",
+    "named": true
+  },
+  {
+    "type": "special_names_entry",
+    "named": true
+  },
+  {
+    "type": "working_storage_section",
+    "named": true
+  }
+]

@@ -1,0 +1,3147 @@
+{
+  "name": "COBOL",
+  "rules": {
+    "source_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identification_division"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "environment_division"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "data_division"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_user_defined_word": {
+      "type": "PATTERN",
+      "value": "[A-Za-z][A-Za-z\\d_-]*"
+    },
+    "program_name": {
+      "type": "SYMBOL",
+      "name": "_user_defined_word"
+    },
+    "data_name": {
+      "type": "SYMBOL",
+      "name": "_user_defined_word"
+    },
+    "file_name": {
+      "type": "SYMBOL",
+      "name": "_user_defined_word"
+    },
+    "implementor_name": {
+      "type": "STRING",
+      "value": "implementor-name"
+    },
+    "alphabet_name": {
+      "type": "STRING",
+      "value": "alphabet-name"
+    },
+    "integer": {
+      "type": "PATTERN",
+      "value": "\\d+"
+    },
+    "character_string": {
+      "type": "PATTERN",
+      "value": "\"[^\"]*\""
+    },
+    "literal": {
+      "type": "SYMBOL",
+      "name": "_user_defined_word"
+    },
+    "comment_entry": {
+      "type": "PATTERN",
+      "value": ".*"
+    },
+    "identification_division": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "IDENTIFICATION DIVISION."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_identification_division_program_id"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_identification_division_author"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_identification_division_installation"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_identification_division_date_written"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_identification_division_date_compiled"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_identification_division_security"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_identification_division_author": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "AUTHOR."
+        },
+        {
+          "type": "FIELD",
+          "name": "author",
+          "content": {
+            "type": "SYMBOL",
+            "name": "comment_entry"
+          }
+        }
+      ]
+    },
+    "_identification_division_installation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "INSTALLATION."
+        },
+        {
+          "type": "FIELD",
+          "name": "installation",
+          "content": {
+            "type": "SYMBOL",
+            "name": "comment_entry"
+          }
+        }
+      ]
+    },
+    "_identification_division_date_written": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "DATE-WRITTEN."
+        },
+        {
+          "type": "FIELD",
+          "name": "date_written",
+          "content": {
+            "type": "SYMBOL",
+            "name": "comment_entry"
+          }
+        }
+      ]
+    },
+    "_identification_division_date_compiled": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "DATE-COMPILED."
+        },
+        {
+          "type": "FIELD",
+          "name": "date_compiled",
+          "content": {
+            "type": "SYMBOL",
+            "name": "comment_entry"
+          }
+        }
+      ]
+    },
+    "_identification_division_security": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "SECURITY."
+        },
+        {
+          "type": "FIELD",
+          "name": "security",
+          "content": {
+            "type": "SYMBOL",
+            "name": "comment_entry"
+          }
+        }
+      ]
+    },
+    "_identification_division_program_id": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "PROGRAM-ID."
+        },
+        {
+          "type": "FIELD",
+          "name": "program_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "program_name"
+          }
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_IS"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "COMMON"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "INITIAL"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "PROGRAM"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "environment_division": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ENVIRONMENT DIVISION."
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "configuration_section"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "input_output_section"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "source_computer_entry": {
+      "type": "STRING",
+      "value": "source-computer-entry"
+    },
+    "object_computer_entry": {
+      "type": "STRING",
+      "value": "object-computer-entry"
+    },
+    "special_names_entry": {
+      "type": "STRING",
+      "value": "special-names-entry"
+    },
+    "configuration_section": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "CONFIGURATION SECTION."
+        },
+        {
+          "type": "STRING",
+          "value": "SOURCE-COMPUTER."
+        },
+        {
+          "type": "FIELD",
+          "name": "source_computer",
+          "content": {
+            "type": "SYMBOL",
+            "name": "source_computer_entry"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "OBJECT-COMPUTER."
+        },
+        {
+          "type": "FIELD",
+          "name": "object_computer",
+          "content": {
+            "type": "SYMBOL",
+            "name": "object_computer_entry"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "SPECIAL-NAMES."
+        },
+        {
+          "type": "FIELD",
+          "name": "special_names",
+          "content": {
+            "type": "SYMBOL",
+            "name": "special_names_entry"
+          }
+        }
+      ]
+    },
+    "_external_file_reference": {
+      "type": "STRING",
+      "value": "external-file-reference"
+    },
+    "_file_reference": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_external_file_reference"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "literal"
+        }
+      ]
+    },
+    "_external_or_dynamic": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "EXTERNAL"
+        },
+        {
+          "type": "STRING",
+          "value": "DYNAMIC"
+        }
+      ]
+    },
+    "file_control_entry": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_record_sequential_file"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_relative_file"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_indexed_file"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_sort_merge_file"
+        }
+      ]
+    },
+    "_record_sequential_file_assign": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_ASSIGN_TO"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_record_sequential_file_assign_destination"
+        }
+      ]
+    },
+    "_record_sequential_file_assign_destination": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_external_or_dynamic"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_record_sequential_file_type"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_file_reference"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "DISC"
+            },
+            {
+              "type": "STRING",
+              "value": "FROM"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "data_name"
+            }
+          ]
+        }
+      ]
+    },
+    "_record_sequential_file_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_line_advancing"
+        },
+        {
+          "type": "STRING",
+          "value": "DISC"
+        },
+        {
+          "type": "STRING",
+          "value": "KEYBOARD"
+        },
+        {
+          "type": "STRING",
+          "value": "DISPLAY"
+        },
+        {
+          "type": "STRING",
+          "value": "PRINTER"
+        },
+        {
+          "type": "STRING",
+          "value": "PRINTER-1"
+        }
+      ]
+    },
+    "_line_advancing": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "LINE ADVANCING"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "MULTIPLE"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "REEL"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "UNIT"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "FILE"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_record_sequential_file_padding": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "PADDING"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "CHARACTER"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_IS"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "literal"
+            }
+          ]
+        }
+      ]
+    },
+    "_file_status": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "FILE"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "STATUS"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_IS"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "data_name"
+        }
+      ]
+    },
+    "_record_sequential_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_select"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_record_sequential_file_assign"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_relative_file_reserve"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_record_sequential_file_organization"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_record_sequential_file_padding"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_record_sequential_file_record_delimiter"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_record_sequential_file_record_access_mode"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_file_status"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_record_sequential_file_record_access_mode": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_ACCESS_MODE_IS"
+        },
+        {
+          "type": "STRING",
+          "value": "SEQUENTIAL"
+        }
+      ]
+    },
+    "_record_sequential_file_record_delimiter": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "RECORD DELIMITER"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_IS"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "STANDARD-1"
+            },
+            {
+              "type": "STRING",
+              "value": "character-string"
+            }
+          ]
+        }
+      ]
+    },
+    "_record_sequential_file_organization": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "ORGANIZATION"
+                    },
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "_IS"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "SEQUENTIAL"
+        }
+      ]
+    },
+    "_ACCESS_MODE_IS": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ACCESS"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "MODE"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_IS"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_RELATIVE_KEY_IS": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "RELATIVE"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "KEY"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_IS"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_relative_file_access_mode": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_ACCESS_MODE_IS"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "SEQUENTIAL"
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SEQ",
+                          "members": [
+                            {
+                              "type": "SYMBOL",
+                              "name": "_RELATIVE_KEY_IS"
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "data_name"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "RANDOM"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "DYNAMIC"
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_RELATIVE_KEY_IS"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "data_name"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_relative_file_assign": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_ASSIGN_TO"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "_external_or_dynamic"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "DISK"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_file_reference"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "DISK FROM"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "data_name"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_external_or_dynamic"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_relative_file_reserve": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "RESERVE"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "integer"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_AREA"
+        }
+      ]
+    },
+    "_select": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "SELECT"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "OPTIONAL"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "file_name"
+        }
+      ]
+    },
+    "_AREA": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "AREA"
+        },
+        {
+          "type": "STRING",
+          "value": "AREAS"
+        }
+      ]
+    },
+    "_relative_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_select"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_relative_file_assign"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_relative_file_reserve"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "ORGANIZATION"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": "RELATIVE"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_relative_file_access_mode"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "FILE STATUS IS"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "data_name"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_indexed_file_assign": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_external_or_dynamic"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "DISK"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_file_reference"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_external_or_dynamic"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "DISK"
+            },
+            {
+              "type": "STRING",
+              "value": "FROM"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_file_reference"
+            }
+          ]
+        }
+      ]
+    },
+    "_indexed_file_reserve": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "RESERVE"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "integer"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_AREA"
+        }
+      ]
+    },
+    "_indexed_file_organization": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "ORGANIZATION"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "INDEXED"
+        }
+      ]
+    },
+    "_indexed_file_access_mode": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_ACCESS_MODE_IS"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "SEQUENTIAL"
+            },
+            {
+              "type": "STRING",
+              "value": "RANDOM"
+            },
+            {
+              "type": "STRING",
+              "value": "DYNAMIC"
+            }
+          ]
+        }
+      ]
+    },
+    "_RECORD_KEY_IS": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "RECORD"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "KEY"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_IS"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_WITH_DUPLICATES": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "WITH"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "DUPLICATES"
+        }
+      ]
+    },
+    "_record_key": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_RECORD_KEY_IS"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "data_name"
+        }
+      ]
+    },
+    "_alternate_record_key": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ALTERNATE"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_RECORD_KEY_IS"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "data_name"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_WITH_DUPLICATES"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_indexed_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_select"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_indexed_file_assign"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_indexed_file_reserve"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_indexed_file_organization"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_indexed_file_access_mode"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_record_key"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_alternate_record_key"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_file_status"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_sort_merge_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "SELECT"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "file_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_ASSIGN_TO"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_file_reference"
+        }
+      ]
+    },
+    "input_output_control_entry": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_input_output_control_rerun_entry"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_input_output_control_same_entry"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_input_output_control_multiple_file_entry"
+        }
+      ]
+    },
+    "_input_output_control_rerun_entry": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "RERUN"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "ON"
+                    },
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "file_name"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "character_string"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_every"
+        }
+      ]
+    },
+    "_input_output_control_same_entry": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "SAME"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "RECORD"
+            },
+            {
+              "type": "STRING",
+              "value": "SORT"
+            },
+            {
+              "type": "STRING",
+              "value": "SORT-MERGE"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "AREA"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "FOR"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "file_name"
+          }
+        }
+      ]
+    },
+    "_input_output_control_multiple_file_entry": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "MULTIPLE"
+        },
+        {
+          "type": "STRING",
+          "value": "FILE"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "TAPE"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "CONTAINS"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "file_name"
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": "POSITION"
+                          },
+                          {
+                            "type": "SYMBOL",
+                            "name": "integer"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "_REAL_OR_UNIT": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "REAL"
+        },
+        {
+          "type": "STRING",
+          "value": "UNIT"
+        }
+      ]
+    },
+    "_END_OF": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "END"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "OF"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_every": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "EVERY"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "_END_OF"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_REAL_OR_UNIT"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "OF"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "file_name"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "integer"
+                },
+                {
+                  "type": "STRING",
+                  "value": "RECORDS"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "OF"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "file_name"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "integer"
+                },
+                {
+                  "type": "STRING",
+                  "value": "CLOCK-UNITS"
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": "condition-name"
+            }
+          ]
+        }
+      ]
+    },
+    "input_output_section": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "INPUT-OUTPUT SECTION."
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "FILE-CONTROL."
+                    },
+                    {
+                      "type": "REPEAT",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "file_control_entry"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "I-O-CONTROL."
+                    },
+                    {
+                      "type": "REPEAT",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "input_output_control_entry"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "data_division": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "DATA DIVISION."
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "file_section"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "working_storage_section"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "linkage_section"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "communication_section"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "report_section"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "file_section": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "FILE SECTION."
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_file_description_entry"
+          }
+        }
+      ]
+    },
+    "_file_description_entry": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_record_sequential_file_description"
+        }
+      ]
+    },
+    "_RECORDS": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "RECORD"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_IS"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "RECORDS"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "ARE"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_IS": {
+      "type": "STRING",
+      "value": "IS"
+    },
+    "_ASSIGN_TO": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ASSIGN"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "TO"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_IS_EXTERNAL": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_IS"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "EXTERNAL"
+        }
+      ]
+    },
+    "_IS_GLOBAL": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_IS"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "GLOBAL"
+        }
+      ]
+    },
+    "_LINES_AT_TOP": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "LINES"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "AT"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "TOP"
+        }
+      ]
+    },
+    "_LINES_AT_BOTTOM": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "LINES"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "AT"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "BOTTOM"
+        }
+      ]
+    },
+    "_CODE_SET_IS": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "CODE-SET"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_IS"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_record_sequential_file_description": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "FD"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "file_name"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_IS_EXTERNAL"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_IS_GLOBAL"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_record_sequential_file_block_description"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_record_sequential_file_record_description"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_record_sequential_file_label_description"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_record_sequential_file_value_description"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_record_sequential_file_data_description"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_record_sequential_file_linage_description"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_LINES_AT_TOP"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "data_name"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_LINES_AT_BOTTOM"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "data_name"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_CODE_SET_IS"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alphabet_name"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_record_sequential_file_block_description": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "BLOCK"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "CONTAINS"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "integer"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "TO"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "integer"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "RECORDS"
+            },
+            {
+              "type": "STRING",
+              "value": "CHARACTERS"
+            }
+          ]
+        }
+      ]
+    },
+    "_record_sequential_file_record_description": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "RECORD"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_ansi85_contains"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_std_contains"
+            }
+          ]
+        }
+      ]
+    },
+    "_ansi85_contains": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "CONTAINS"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "integer"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "CHARACTERS"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_IS"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "VARYING"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "IN"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "SIZE"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "SEQ",
+                              "members": [
+                                {
+                                  "type": "SEQ",
+                                  "members": [
+                                    {
+                                      "type": "CHOICE",
+                                      "members": [
+                                        {
+                                          "type": "STRING",
+                                          "value": "FROM"
+                                        },
+                                        {
+                                          "type": "BLANK"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "integer"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BLANK"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "SEQ",
+                              "members": [
+                                {
+                                  "type": "STRING",
+                                  "value": "TO"
+                                },
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "integer"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BLANK"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "STRING",
+                              "value": "CHARACTERS"
+                            },
+                            {
+                              "type": "BLANK"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "SEQ",
+                              "members": [
+                                {
+                                  "type": "STRING",
+                                  "value": "DEPENDING"
+                                },
+                                {
+                                  "type": "SEQ",
+                                  "members": [
+                                    {
+                                      "type": "CHOICE",
+                                      "members": [
+                                        {
+                                          "type": "STRING",
+                                          "value": "ON"
+                                        },
+                                        {
+                                          "type": "BLANK"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "data_name"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BLANK"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_std_contains": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "CONTAINS"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "integer"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "TO"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "integer"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "CHARACTERS"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "_record_sequential_file_label_description": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "LABEL"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_RECORDS"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "STANDARD"
+            },
+            {
+              "type": "STRING",
+              "value": "OMITTED"
+            }
+          ]
+        }
+      ]
+    },
+    "_record_sequential_file_value_description": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "VALUE"
+        },
+        {
+          "type": "STRING",
+          "value": "OF"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "implementor_name"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_IS"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "data_name"
+          }
+        }
+      ]
+    },
+    "_record_sequential_file_data_description": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "DATA"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_RECORDS"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "data_name"
+          }
+        }
+      ]
+    },
+    "_record_sequential_file_linage_description": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "LINAGE"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_IS"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "data_name"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "LINES"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "STRING",
+                              "value": "WITH"
+                            },
+                            {
+                              "type": "BLANK"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "FOOTING"
+                    },
+                    {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "STRING",
+                              "value": "AT"
+                            },
+                            {
+                              "type": "BLANK"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "data_name"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "working_storage_section": {
+      "type": "STRING",
+      "value": "WORKING-STORAGE SECTION."
+    },
+    "linkage_section": {
+      "type": "STRING",
+      "value": "LINKAGE SECTION."
+    },
+    "communication_section": {
+      "type": "STRING",
+      "value": "COMMUNICATION SECTION."
+    },
+    "report_section": {
+      "type": "STRING",
+      "value": "REPORT SECTION."
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [
+    [
+      "_record_sequential_file_assign",
+      "_relative_file_assign"
+    ],
+    [
+      "_sort_merge_file",
+      "_select"
+    ],
+    [
+      "_record_sequential_file_linage_description"
+    ],
+    [
+      "_record_sequential_file_assign_destination",
+      "_relative_file_assign"
+    ]
+  ],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+
